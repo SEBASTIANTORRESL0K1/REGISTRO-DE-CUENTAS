@@ -2,16 +2,8 @@
 let clientes= [];
 
 class Cliente{
-    constructor(primerNombre, segundoNombre, primerApellido, segundoApellido, numTelefono, colonia, calle, numero, referencias){
-        this.primerNombre=primerNombre;
-        this.segundoNombre=segundoNombre;
-        this.primerApellido=primerApellido;
-        this.segundoApellido=segundoApellido;
-        this.numTelefono=numTelefono;
-        this.colonia=colonia;
-        this.calle=calle;
-        this.numero=numero;
-        this.referencias=referencias;
+    constructor(nombre){
+        this.nombre=nombre;
         this.cuentas=[];
     }
     agregarCuenta(cuenta){
@@ -53,11 +45,28 @@ class Movimiento{
         false sera para nueva ropa
     */
     }
-let sebas= new Cliente("sebas","","Torres,","","312","La Albarrada","Colon","445","");
-let cuenta1=new Cuenta();
-clientes.push(sebas);
-sebas.agregarCuenta(cuenta1);
-cuenta1.agregarMovimiento(new Movimiento(false,1000));
-cuenta1.agregarMovimiento(new Movimiento(false,500));
-cuenta1.agregarMovimiento(new Movimiento(true,1500));
-console.log(clientes[0].cuentas[0].mostrarDeuda());
+
+
+let boton=document.getElementById("btnAgregarCliente");
+boton.onclick=() =>{
+    let nombre=document.getElementById("nombre").value;
+    clientes.push(new Cliente(nombre))
+    console.log("agregado")
+} 
+let boton2=document.getElementById("btnMostrarClientes"); 
+boton2.onclick=() =>{
+    for(let i=0;i<clientes.length;i++){
+        console.log(clientes[i].nombre) ;
+    }
+}
+function mostrarClientes(){
+
+}  
+// let sebas= new Cliente("sebas","","Torres,","","312","La Albarrada","Colon","445","");
+// let cuenta1=new Cuenta();
+// clientes.push(sebas);
+// sebas.agregarCuenta(cuenta1);
+// cuenta1.agregarMovimiento(new Movimiento(false,1000));
+// cuenta1.agregarMovimiento(new Movimiento(false,500));
+// cuenta1.agregarMovimiento(new Movimiento(true,1500));
+// console.log(clientes[0].cuentas[0].mostrarDeuda());
