@@ -54,14 +54,19 @@ boton.onclick=() =>{
     console.log("agregado")
 } 
 let boton2=document.getElementById("btnMostrarClientes"); 
+let area=document.getElementById("area");
 boton2.onclick=() =>{
+    area.innerHTML='';
     for(let i=0;i<clientes.length;i++){
-        console.log(clientes[i].nombre) ;
+        area.innerHTML+=(clientes[i].nombre)+'<button onclick="verCliente('+i+')"> Ver cliente </button><br>' ;
     }
 }
-function mostrarClientes(){
-
-}  
+function verCliente(numero){
+    
+    let clienteNuevaPagina= clientes[numero];
+    localStorage.setItem('cliente',JSON.stringify(clienteNuevaPagina));
+    window.location.href='html/micliente.html';
+}
 // let sebas= new Cliente("sebas","","Torres,","","312","La Albarrada","Colon","445","");
 // let cuenta1=new Cuenta();
 // clientes.push(sebas);
